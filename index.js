@@ -1,9 +1,9 @@
 //Dependencies
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const express = require("express");
 const app = express();
 //Routers
-const pokemon = require('./routes/pokemon');
+/*const pokemon = require('./routes/pokemon');
 const user = require('./routes/user');
 //Middleware
 const auth = require('./middleware/auth')
@@ -27,7 +27,7 @@ PATCH - modificar una parte recurso
 DELETE - borrar un recurso
 */
 
-app.get("/", index );
+/*app.get("/", index );
 app.use("/user", user);
 app.use(auth);
 app.use("/pokemon", pokemon);
@@ -36,6 +36,6 @@ app.use(notFound);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server is running...");
-});
+});*/
 
 
