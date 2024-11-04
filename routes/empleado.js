@@ -4,10 +4,10 @@ const empleado = express.Router();
 const db = require('../config/database');
 
 empleado.post("/signin", async (req, res, next) => {
-    const { nombre, apellidos, telefono,correo_electronico,direccion,clave } = req.body;
-    if (id_empleado && nombre && apellidos && telefono && correo_electronico && direccion && clave) {
-        let query = "INSERT INTO empleado (nombre, apellidos, telefono,correo_electronico,direccio,clave) ";
-        query += `VALUES ('${id_empleado}','${nombre}','${apellidos}','${telefono}','${correo_electronico}','${direccion}','${clave}');`;
+    const { nombre, apellidos, telefono,correo,direccion,clave } = req.body;
+    if (id_empleado && nombre && apellidos && telefono && correo && direccion && clave) {
+        let query = "INSERT INTO empleado (nombre, apellidos, telefono,correo,direccion,clave) ";
+        query += `VALUES ('${id_empleado}','${nombre}','${apellidos}','${telefono}','${correo}','${direccion}','${clave}');`;
         const rows = await db.query(query);
 
         if (rows.affectedRows == 1) {
