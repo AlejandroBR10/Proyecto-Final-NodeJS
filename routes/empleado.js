@@ -45,7 +45,7 @@ empleado.get("/", async (req, res, next) => {
 
 
 
-module.exports = user;
+module.exports = empleado;
 
 
 //CAMBIAR SENTENCIAS SQL

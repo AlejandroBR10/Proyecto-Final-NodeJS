@@ -1,15 +1,12 @@
 //Dependencies
-//const morgan = require('morgan');
+const morgan = require('morgan');
 const express = require("express");
 const app = express();
 //Routers
-/*const pokemon = require('./routes/pokemon');
-const user = require('./routes/user');
+const empleado = require('./routes/empleado');
 //Middleware
 const auth = require('./middleware/auth')
 const notFound = require('./middleware/notFound');
-*/
-
 const index = require('./middleware/index');
 /*
 const jsonwebtoken = require('jsonwebtoken');
