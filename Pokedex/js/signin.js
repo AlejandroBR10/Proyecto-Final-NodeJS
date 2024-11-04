@@ -22,7 +22,7 @@ function signin(){
 
     axios({
         method: 'post',
-        url: 'http://localhost:3000/user/signin',
+        url: 'http://localhost:3000/empleado/signin',
         data: {
             user_name: name,
             user_mail: mail,
