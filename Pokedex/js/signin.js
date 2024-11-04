@@ -14,9 +14,12 @@ function init(){
 }
 
 function signin(){
-    var name = document.getElementById('input-name').value;
-    var mail = document.getElementById('input-mail').value;
-    var pass = document.getElementById('input-password').value;
+    var nombre = document.getElementById('input-name').value;
+    var apellidos = document.getElementById('input-lastname').value;
+    var telefono = document.getElementById('input-phone').value;
+    var correo = document.getElementById('input-mail').value;
+    var direccion = document.getElementById('input-address').value;
+    var password = document.getElementById('input-password').value;
 
     console.log(mail, pass);
 
@@ -24,9 +27,12 @@ function signin(){
         method: 'post',
         url: 'http://localhost:3000/empleado/signin',
         data: {
-            user_name: name,
-            user_mail: mail,
-            user_password: pass
+            nombre: nombre,
+            apellidos: apellidos,
+            telefono: telefono,
+            correo: correo,
+            direccion: direccion,
+            password: password
         }
     }).then(function(res) {
         console.log(res);
