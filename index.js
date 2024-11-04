@@ -29,7 +29,7 @@ DELETE - borrar un recurso
 
 app.get("/", index );
 
-app.use("/empleado", user);
+app.use("/empleado", empleado);
 app.use(auth);
 app.use("/pokemon", pokemon);
 
