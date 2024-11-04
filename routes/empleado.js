@@ -4,10 +4,17 @@ const empleado = express.Router();
 const db = require('../config/database');
 
 empleado.post("/signin", async (req, res, next) => {
+<<<<<<< HEAD
     const { nombre, apellidos, telefono,correo,direccion,clave } = req.body;
     if (id_empleado && nombre && apellidos && telefono && correo && direccion && clave) {
         let query = "INSERT INTO empleado (nombre, apellidos, telefono,correo,direccion,clave) ";
         query += `VALUES ('${id_empleado}','${nombre}','${apellidos}','${telefono}','${correo}','${direccion}','${clave}');`;
+=======
+    const { nombre, apellidos, telefono,correo_electronico,direccion,clave } = req.body;
+    if (id_empleado && nombre && apellidos && telefono && correo_electronico && direccion && clave) {
+        let query = "INSERT INTO empleado (nombre, apellidos, telefono,correo_electronico,direccion,clave) ";
+        query += `VALUES ('${id_empleado}','${nombre}','${apellidos}','${telefono}','${correo_electronico}','${direccion}','${clave}');`;
+>>>>>>> 47537218442e122d01e82dad7c76814429b58bbf
         const rows = await db.query(query);
 
         if (rows.affectedRows == 1) {
@@ -19,14 +26,14 @@ empleado.post("/signin", async (req, res, next) => {
 });
 
 empleado.post("/login", async (req, res, next) => {
-    const { user_mail, user_password } = req.body;
-    let query = `SELECT * FROM empleados WHERE correo= '${user_mail}' AND clave = '${user_password}';`;
+    const { correo, clave } = req.body;
+    let query = `SELECT * FROM empleados WHERE correo= '${correo}' AND clave = '${clave}';`;
     const rows = await db.query(query);
-    if (user_mail && user_password) {
+    if (correo && clave) {
         if (rows.length == 1) {
             const token = jwt.sign({
-                user_id: rows[0].user_id,
-                user_mail:rows[0].user_mail
+                id_empleado: rows[0].id_empleado,
+                correo: rows[0].correo
             }, "debugkey");
             return res.status(200).json({ code: 200, message: token });
         } 
