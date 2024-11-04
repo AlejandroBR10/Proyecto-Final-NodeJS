@@ -14,31 +14,26 @@ function init(){
 }
 
 function signin(){
+    console.log("Prueba de testeo de boton");
     var nombre = document.getElementById('input-name').value;
     var apellidos = document.getElementById('input-lastname').value;
     var telefono = document.getElementById('input-phone').value;
     var correo = document.getElementById('input-mail').value;
     var direccion = document.getElementById('input-address').value;
-    var password = document.getElementById('input-password').value;
+    var clave = document.getElementById('input-password').value;
 
-    console.log(mail, pass);
+
 
     axios({
         method: 'post',
         url: 'http://localhost:3000/empleado/signin',
         data: {
-<<<<<<< HEAD
-            nombre: name,
-            correo: mail,
-            clave: pass
-=======
             nombre: nombre,
             apellidos: apellidos,
             telefono: telefono,
             correo: correo,
             direccion: direccion,
-            password: password
->>>>>>> b719def4e65819b1617a0656798335bd50929d4c
+            clave: clave
         }
     }).then(function(res) {
         console.log(res);
