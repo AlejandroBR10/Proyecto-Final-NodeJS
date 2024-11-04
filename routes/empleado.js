@@ -6,7 +6,7 @@ const db = require('../config/database');
 empleado.post("/signin", async (req, res, next) => {
     const { nombre, apellidos, telefono,correo,direccion,clave } = req.body;
     if ( nombre && apellidos && telefono && correo && direccion && clave) {
-        let query = "INSERT INTO empleado (nombre, apellidos, telefono,correo,direccion,clave) ";
+        let query = "INSERT INTO empleados (nombre, apellidos, telefono,correo,direccion,clave) ";
         query += `VALUES ('${nombre}','${apellidos}','${telefono}','${correo}','${direccion}','${clave}');`;
         const rows = await db.query(query);
 

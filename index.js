@@ -9,7 +9,6 @@ const auth = require('./middleware/auth')
 const notFound = require('./middleware/notFound');
 const index = require('./middleware/index');
 
-const jsonwebtoken = require('jsonwebtoken');
 const cors = require('./middleware/cors');
 
 app.use(cors);
@@ -31,7 +30,7 @@ app.get("/", index );
 
 app.use("/empleado", empleado);
 app.use(auth);
-app.use("/pokemon", pokemon);
+//app.use("/pokemon", pokemon);
 
 app.use(notFound);
 
