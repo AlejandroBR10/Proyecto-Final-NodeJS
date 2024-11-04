@@ -24,9 +24,9 @@ function signin(){
         method: 'post',
         url: 'http://localhost:3000/empleado/signin',
         data: {
-            user_name: name,
-            user_mail: mail,
-            user_password: pass
+            nombre: name,
+            correo: mail,
+            clave: pass
         }
     }).then(function(res) {
         console.log(res);
