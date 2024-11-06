@@ -1,6 +1,9 @@
 window.onload = init;
 
 function init(){
+    const checkbox = document.getElementById('flexSwitchCheckDefault').checked;
+
+    localStorage.removeItem("token");
     if(!localStorage.getItem("token")){
     document.querySelector('.btn-secondary').addEventListener('click', function() {
         window.location.href = "signin.html"

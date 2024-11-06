@@ -36,9 +36,44 @@ empleado.post("/login", async (req, res, next) => {
     }
     return res.status(500).json({code: 500, message: "Campos Incompletos"});
 });
+empleado.delete("/:id([0-9]{1,3})",async (req,res,next) => {
+    const query = `DELETE FROM EMPLEADOS WHERE id=${req.params.id}`;
+    const rows = await db.query(query);
+    if(rows.affectedRows == 1){
+      return res.status(200).json({code: 200, message: "Pokemon borrado correctamente"});
+    }
+    return res.status(404).json({code: 404, message: "Pokemon no encontrado"});
+});
+
+empleado.put("/:id([0-9]{1,3})",async (req,res,next) => {
+    const { nombre, apellidos, telefono,correo,direccion,clave } = req.body;
+  if(nombre && apellidos && telefono && correo && direccion && clave){
+  let query = `UPDATE empleados SET ='${nombre}' ,apellidos= ${apellidos},`;
+  query += `telefono= ${telefono} ,correo= ${correo}, direccion = ${direccion}, clave = ${clave} WHERE id = ${req.params.id};`;
+  const rows = await db.query(query);
+  if(rows.affectedRows == 1){
+      return res.status(200).json({code: 200, message: "Empleado actualizado correctamente"});
+  }
+      return res.status(500).json({code: 500, message: "Ocurrio un error"});
+  }
+  return res.status(500).json({code: 500, message: "Campos incompletos"});
+
+});
+
+empleado.patch("/:id([0-9]{1,3})",async (req,res,next) => {
+  if(req.body.nombre){
+  let query = `UPDATE empleados SET nombre='${req.body.nombre}' WHERE id = ${req.params.id};`;
+  const rows = await db.query(query);
+  if(rows.affectedRows == 1){
+      return res.status(200).json({code: 200, message: "empleado actualizado correctamente"});
+  }
+  return res.status(500).json({code: 500, message: "Ocurrio un error"});
+}
+return res.status(500).json({code: 500, message: "Campos Incompletos"});
+});
 
 empleado.get("/", async (req, res, next) => {
-    const query = "SELECT * FROM user;";
+    const query = "SELECT * FROM empleados;";
     const rows = await db.query(query);
     return res.status(200).json({ code: 200, message: rows });
 });
