@@ -44,6 +44,7 @@ function loadEmpleado(){
         returnToIndex();
         add_Empleado();
         delete_Empleado();
+        actualizarEmpleado();
         
     }).catch(function(err) {
         console.log(err);
