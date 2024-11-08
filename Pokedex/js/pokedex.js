@@ -45,3 +45,4 @@ function displayEmpleado(empleado){
         body.innerHTML += `<h3>${empleado[i].nombre}</h3>`;
     }
 }
+
