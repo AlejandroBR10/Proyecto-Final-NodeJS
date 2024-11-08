@@ -55,11 +55,29 @@ admin.delete("/:id([0-9]{1,3})", async (req, res, next) => {
     return res.status(404).json({ code: 404, message: "Empleado no encontrado" });
 });
 
-admin.put("/:id([0-9]{1,3})", async (req, res, next) => {
+/*admin.put("/:id([0-9]{1,3})", async (req, res, next) => {
     const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;
     if (nombre && apellidos && telefono && correo && direccion && clave) {
         let query = `UPDATE empleados SET ='${nombre}' ,apellidos= ${apellidos},`;
         query += `telefono= ${telefono} ,correo= ${correo}, direccion = ${direccion}, clave = ${clave} WHERE id = ${req.params.id};`;
+        const rows = await db.query(query);
+        if (rows.affectedRows == 1) {
+            return res
+                .status(200)
+                .json({ code: 200, message: "Empleado actualizado correctamente" });
+        }
+        return res.status(500).json({ code: 500, message: "Ocurrio un error" });
+    }
+    return res.status(500).json({ code: 500, message: "Campos incompletos" });
+});*/
+
+admin.put("/modify/:id([0-9]{1,3})", async (req, res, next) => {
+    const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;
+    console.log(req.body);
+    if (nombre && apellidos && telefono && correo && direccion && clave) {
+        let query = `UPDATE empleados SET nombre ='${nombre}' ,apellidos= '${apellidos}',`;
+        query += `telefono= '${telefono}' ,correo= '${correo}', direccion = '${direccion}', clave = '${clave}' WHERE id_empleado = ${req.params.id};`;
+        console.log(req.params.id);
         const rows = await db.query(query);
         if (rows.affectedRows == 1) {
             return res

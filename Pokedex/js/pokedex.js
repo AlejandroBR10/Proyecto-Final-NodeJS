@@ -1,6 +1,7 @@
 window.onload = init;
 var headers = {};
 var url = "http://localhost:3000"
+var empleados = [];
 
 function init(){
     if(localStorage.getItem("token")){
@@ -14,9 +15,17 @@ function init(){
     }else{
         window.location.href = "index.html";
     }
+    /*const btnSearch = document.getElementById("btn-search");
+    if (btnSearch) {
+        btnSearch.addEventListener("click", buscarEmpleado); // Evento de búsqueda
+    } else {
+        console.error("No se encontró el botón de búsqueda");
+    }
+
+    returnToIndex(); // Configurar el botón de cierre de sesión*/
 }
-const btnSearch = document.getElementById("btn-search");
-btnSearch.addEventListener("click", buscarEmpleado);
+
+
 
 function returnToIndex(){
     const logOut = document.getElementById("btn-logout");
@@ -25,12 +34,22 @@ function returnToIndex(){
     })
 }
 
+function actualizarEmpleado(){
+    const actualizar = document.getElementById("btn-modificarEmpleado");
+    actualizar.addEventListener('click', () => {
+        window.location.href = "modifyEmpleado.html"
+    })
+}
+
+
 
 function loadEmpleado(){
     axios.get(url + "/empleado", headers).then(function(res) {
         console.log(res);
         displayEmpleado(res.data.message);
         returnToIndex();
+        actualizarEmpleado();
+
         
     }).catch(function(err) {
         console.log(err);
@@ -79,13 +98,22 @@ function displayEmpleado(empleado) {
     }
 }
 
-function buscarEmpleado() {
+/*function buscarEmpleado() {
     var searchInput = document.getElementById("search-input").value.toLowerCase();
+    console.log("Término de búsqueda:", searchInput); // Verificar el valor ingresado
+
+    // Filtrar empleados que coincidan con el término de búsqueda en nombre o apellidos
     var filteredEmpleados = empleados.filter(function(empleado) {
         return empleado.nombre.toLowerCase().includes(searchInput) || 
                empleado.apellidos.toLowerCase().includes(searchInput);
     });
 
-    displayEmpleado(filteredEmpleados); 
-}
+    console.log("Empleados filtrados:", filteredEmpleados); // Verificar el resultado del filtrado
+
+    // Mostrar los empleados filtrados
+    displayEmpleado(filteredEmpleados);
+}*/
+
+
+
 
