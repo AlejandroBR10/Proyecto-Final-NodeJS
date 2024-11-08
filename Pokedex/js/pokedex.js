@@ -38,10 +38,19 @@ function loadEmpleado(){
     })
 }
 
+//Botones de agregar, modificar eliminar y buscar
 
-function displayEmpleado(empleado){
+function displayEmpleado(empleado) {
     var body = document.querySelector("body");
-    for(var i = 0; i < empleado.length; i++){
-        body.innerHTML += `<h3>${empleado[i].nombre}</h3>`;
+    for (var i = 0; i < empleado.length; i++) {
+        body.innerHTML += `
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>${empleado[i].nombre} ${empleado[i].apellidos}</h3>
+            <div>
+                <button type="button" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-warning">Modificar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+        </div>`;
     }
 }
