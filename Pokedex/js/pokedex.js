@@ -10,26 +10,38 @@ function init(){
                 'Authorization': "bearer " + localStorage.getItem("token")
             }
         }
-        loadPokemon();
+        loadEmpleado();
     }else{
         window.location.href = "index.html";
     }
 }
 
-
-function loadPokemon(){
-    axios.get(url + "/pokemon", headers).then(function(res) {
-        console.log(res);
-        displayPokemon(res.data.message);
-    }).catch(function(err) {
-        console.log(err);
+function returnToIndex(){
+    const logOut = document.getElementById("btn-logout");
+    logOut.addEventListener('click', () => {
+        window.location.href = "index.html"
     })
 }
 
 
-function displayPokemon(pokemon){
+function loadEmpleado(){
+    axios.get(url + "/empleado", headers).then(function(res) {
+        console.log(res);
+        displayEmpleado(res.data.message);
+        returnToIndex();
+        
+    }).catch(function(err) {
+        console.log(err);
+    })
+    .finally(function(){
+        console.log("Solicitud completada");
+    })
+}
+
+
+function displayEmpleado(empleado){
     var body = document.querySelector("body");
-    for(var i = 0; i < pokemon.length; i++){
-        body.innerHTML += `<h3>${pokemon[i].pok_name}</h3>`;
+    for(var i = 0; i < empleado.length; i++){
+        body.innerHTML += `<h3>${empleado[i].nombre}</h3>`;
     }
 }

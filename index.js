@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 //Routers
 const empleado = require('./routes/empleado');
+const admin = require('./routes/admin');
 //Middleware
 const auth = require('./middleware/auth')
 const notFound = require('./middleware/notFound');
@@ -27,7 +28,7 @@ DELETE - borrar un recurso
 */
 
 app.get("/", index );
-
+app.use("/admin", admin);
 app.use("/empleado", empleado);
 app.use(auth);
 //app.use("/pokemon", pokemon);
