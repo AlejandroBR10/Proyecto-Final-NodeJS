@@ -22,7 +22,6 @@ admin.post("/login", async (req, res, next) => {
     const { correo_electronico, clave } = req.body;
     let query = `SELECT * FROM administrador WHERE correo_electronico= '${correo_electronico}' AND clave = '${clave}';`;
     const rows = await db.query(query);
-    console.log(req.body);
     if (correo_electronico && clave) {
         if (rows.length == 1) {
             console.log(rows);
