@@ -14,6 +14,7 @@ function init(){
     }else{
         window.location.href = "index.html";
     }
+
 }
 const btnSearch = document.getElementById("btn-search");
 btnSearch.addEventListener("click", buscarEmpleado);
@@ -30,7 +31,11 @@ function loadEmpleado(){
     axios.get(url + "/empleado", headers).then(function(res) {
         console.log(res);
         displayEmpleado(res.data.message);
+
+        //HANDLERS DE LOS BOTONES DE LA PAGINA
         returnToIndex();
+        add_Empleado();
+        delete_Empleado();
         
     }).catch(function(err) {
         console.log(err);
@@ -42,6 +47,23 @@ function loadEmpleado(){
 
 //Botones de agregar, modificar eliminar y buscar
 
+function add_Empleado(){
+    const btn_add_empleado = document.getElementById("btn-agregarEmpleado");
+    btn_add_empleado.addEventListener('click', () => {
+        window.location.href = "signin.html"
+    })
+}
+
+function delete_Empleado(){
+    const btn_del_empleado = document.getElementById("btn-eliminarEmpleado");
+    btn_del_empleado.addEventListener('click', () => {
+        window.location.href = "deleteEmpleado.html"
+    })
+}
+
+
+
+//Listar empleados en una tabla
 function displayEmpleado(empleado) {
     var body = document.querySelector("body");
 

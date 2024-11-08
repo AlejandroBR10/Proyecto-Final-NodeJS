@@ -9,10 +9,13 @@ const admin = require('./routes/admin');
 const auth = require('./middleware/auth')
 const notFound = require('./middleware/notFound');
 const index = require('./middleware/index');
+const cors = require('cors');
 
-const cors = require('./middleware/cors');
-
-app.use(cors);
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'] 
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
