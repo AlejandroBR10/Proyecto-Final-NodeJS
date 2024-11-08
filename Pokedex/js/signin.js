@@ -10,7 +10,7 @@ function init(){
         document.querySelector('.btn-primary').addEventListener('click', signin);
     }
     else{
-        window.location.href = "pokedex.html";
+        window.location.href = "home.html";
     }
 }
 

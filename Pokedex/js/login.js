@@ -24,7 +24,7 @@ function init(){
     document.querySelector('.btn-primary').addEventListener('click', login)
 }
 else{
-    window.location.href = "pokedex.html";
+    window.location.href = "home.html";
 }
 }
 
@@ -53,7 +53,7 @@ function login(){
         }).then(function(res) {
             console.log(res);
             if(res.data.code === 200){
-                window.location.href = "pokedex.html";
+                window.location.href = "home.html";
                 localStorage.setItem("token", res.data.message);
                 alert("Inicio exitoso");
             }
@@ -74,7 +74,7 @@ function login(){
         }).then(function(res) {
             console.log(res);
             if(res.data.code === 200){
-                window.location.href = "pokedex.html";
+                window.location.href = "home.html";
                 localStorage.setItem("token", res.data.message);
                 alert("Inicio exitoso");
             }

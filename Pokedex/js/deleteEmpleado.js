@@ -20,23 +20,3 @@ function init() {
         });
     });
 }
-
-/*
-        axios({
-            method: 'delete',
-            url: 'http://localhost:3000/admin',
-            data: {
-                id: id,
-                correo: email,
-                clave: clave
-            }
-        }).then(function(res) {
-            console.log(res);
-            alert("Empleado eliminado exitosamente");
-            window.location.href = "login.html";
-        }).catch(function(err) {
-            console.log(err);
-        })
-    })
-
-*/
