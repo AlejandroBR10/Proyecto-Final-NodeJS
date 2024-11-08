@@ -15,6 +15,8 @@ function init(){
         window.location.href = "index.html";
     }
 }
+const btnSearch = document.getElementById("btn-search");
+btnSearch.addEventListener("click", buscarEmpleado);
 
 function returnToIndex(){
     const logOut = document.getElementById("btn-logout");
@@ -54,7 +56,4 @@ function displayEmpleado(empleado) {
         </div>`;
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> e4885f2be803edb79669d69e96d185141f1c5e31
