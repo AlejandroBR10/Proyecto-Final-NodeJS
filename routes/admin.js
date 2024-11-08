@@ -96,7 +96,7 @@ admin.delete("/:id([0-9]{1,3})/:correo([A-Za-z]+)/:clave([A-Za-z]+)", async (req
         return res.status(500).json({ code: 500, message: "Ocurrio un error" });
     }
     return res.status(500).json({ code: 500, message: "Campos incompletos" });
-});
+});*/
 
 admin.put("/modify/:id([0-9]{1,3})", async (req, res, next) => {
     const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;

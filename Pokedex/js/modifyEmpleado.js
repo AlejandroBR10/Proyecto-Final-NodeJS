@@ -1,6 +1,11 @@
 window.onload = init;
 
 function init(){
+        document.querySelector('.btn-primary').addEventListener('click', modificar);
+    
+}
+
+function modificar(){
     console.log("Prueba de testeo de boton");
     var id = document.getElementById('input-id').value;
     var nombre = document.getElementById('input-name').value;
@@ -9,7 +14,7 @@ function init(){
     var correo = document.getElementById('input-mail').value;
     var direccion = document.getElementById('input-address').value;
     var clave = document.getElementById('input-password').value;
-    
+
     console.log(id+nombre+apellidos+telefono);
     
 
