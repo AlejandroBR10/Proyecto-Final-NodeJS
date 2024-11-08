@@ -44,16 +44,38 @@ function loadEmpleado(){
 
 function displayEmpleado(empleado) {
     var body = document.querySelector("body");
+
+
+    body.innerHTML += `
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+        <table border="1" style="width: 90%; text-align: left; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                </tr>
+            </thead>
+            <tbody id="empleados-body">
+            </tbody>
+        </table>
+    </div>`;
+
+    var tableBody = document.getElementById("empleados-body");
+
     for (var i = 0; i < empleado.length; i++) {
-        body.innerHTML += `
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>${empleado[i].nombre} ${empleado[i].apellidos}</h3>
-            <div>
-                <button type="button" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-warning">Modificar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
-            </div>
-        </div>`;
+        tableBody.innerHTML += `
+        <tr>
+            <td>${empleado[i].id_empleado}</td>
+            <td>${empleado[i].nombre}</td>
+            <td>${empleado[i].apellidos}</td>
+            <td>${empleado[i].correo}</td>
+            <td>${empleado[i].telefono}</td>
+            <td>${empleado[i].direccion}</td>
+        </tr>`;
     }
 }
 
