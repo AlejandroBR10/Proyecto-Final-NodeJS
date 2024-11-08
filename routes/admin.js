@@ -82,7 +82,7 @@ admin.delete("/:id([0-9]{1,3})/:correo([A-Za-z]+)/:clave([A-Za-z]+)", async (req
     return res.status(404).json({ code: 404, message: "Empleado no encontrado" });
 });
 */
-admin.put("/:id([0-9]{1,3})", async (req, res, next) => {
+/*admin.put("/:id([0-9]{1,3})", async (req, res, next) => {
     const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;
     if (nombre && apellidos && telefono && correo && direccion && clave) {
         let query = `UPDATE empleados SET ='${nombre}' ,apellidos= ${apellidos},`;
