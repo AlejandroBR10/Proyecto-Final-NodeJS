@@ -43,7 +43,6 @@ function login(){
    // console.log(mail, pass);
 
     if(checkbox.checked){
-        console.log(checkbox);
         axios({
             method: 'post',
             url: 'http://localhost:3000/admin/login',

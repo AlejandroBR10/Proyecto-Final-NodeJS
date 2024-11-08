@@ -19,10 +19,11 @@ admin.post("/signin", async (req, res, next) => {
 });
 
 admin.post("/login", async (req, res, next) => {
-    const { correo, clave } = req.body;
-    let query = `SELECT * FROM administrador WHERE correo_electronico= '${correo}' AND clave = '${clave}';`;
+    const { correo_electronico, clave } = req.body;
+    let query = `SELECT * FROM administrador WHERE correo_electronico= '${correo_electronico}' AND clave = '${clave}';`;
     const rows = await db.query(query);
-    if (correo && clave) {
+    console.log(req.body);
+    if (correo_electronico && clave) {
         if (rows.length == 1) {
             console.log(rows);
             const token = jwt.sign({
