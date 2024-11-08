@@ -29,7 +29,7 @@ function login(){
     }).then(function(res) {
         console.log(res);
         if(res.data.code === 200){
-            windows.location.href = "pokedex.html";
+            window.location.href = "pokedex.html";
             localStorage.setItem("token", res.data.message);
             alert("Inicio exitoso");
         }

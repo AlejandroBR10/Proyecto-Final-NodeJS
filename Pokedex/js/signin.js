@@ -14,12 +14,14 @@ function init(){
 }
 
 function signin(){
+    console.log("Prueba de testeo de boton");
     var nombre = document.getElementById('input-name').value;
     var apellidos = document.getElementById('input-lastname').value;
     var telefono = document.getElementById('input-phone').value;
     var correo = document.getElementById('input-mail').value;
     var direccion = document.getElementById('input-address').value;
-    var password = document.getElementById('input-password').value;
+    var clave = document.getElementById('input-password').value;
+
 
 
     axios({
@@ -31,7 +33,7 @@ function signin(){
             telefono: telefono,
             correo: correo,
             direccion: direccion,
-            clave: password
+            clave: clave
         }
     }).then(function(res) {
         console.log(res);
