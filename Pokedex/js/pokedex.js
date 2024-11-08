@@ -79,3 +79,13 @@ function displayEmpleado(empleado) {
     }
 }
 
+function buscarEmpleado() {
+    var searchInput = document.getElementById("search-input").value.toLowerCase();
+    var filteredEmpleados = empleados.filter(function(empleado) {
+        return empleado.nombre.toLowerCase().includes(searchInput) || 
+               empleado.apellidos.toLowerCase().includes(searchInput);
+    });
+
+    displayEmpleado(filteredEmpleados); 
+}
+
