@@ -1,6 +1,7 @@
 window.onload = init;
 
 function init(){
+    localStorage.removeItem("token");
     if(!localStorage.getItem("token")){
         document.querySelector('.btn-secondary').addEventListener('click', function() {
             window.location.href = "login.html"
