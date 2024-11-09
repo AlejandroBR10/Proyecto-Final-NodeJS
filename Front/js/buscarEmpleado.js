@@ -1,37 +1,13 @@
 window.onload = init;
-var headers = {};
-var url = "http://localhost:3000"
-var empleados = [];
 
 function init(){
-    if(localStorage.getItem("token")){
-        token = localStorage.getItem("token");
-        headers = {
-            headers: {
-                'Authorization': "bearer " + localStorage.getItem("token")
-            }
-        }
-        loadEmpleado();
-    }else{
-        window.location.href = "index.html";
-    }
+        document.querySelector('.btn-primary').addEventListener('click', modificar);
+    
 }
 
 
 
-function returnToIndex(){
-    const logOut = document.getElementById("btn-logout");
-    logOut.addEventListener('click', () => {
-        window.location.href = "index.html"
-    })
-}
 
-function actualizarEmpleado(){
-    const actualizar = document.getElementById("btn-modificarEmpleado");
-    actualizar.addEventListener('click', () => {
-        window.location.href = "modifyEmpleado.html"
-    })
-}
 
 
 
@@ -39,12 +15,6 @@ function loadEmpleado(){
     axios.get(url + "/empleado", headers).then(function(res) {
         console.log(res);
         displayEmpleado(res.data.message);
-        buscarEmpleado();
-        //HANDLERS DE LOS BOTONES DE LA PAGINA
-        returnToIndex();
-        add_Empleado();
-        delete_Empleado();
-        actualizarEmpleado();
         
     }).catch(function(err) {
         console.log(err);
@@ -56,19 +26,7 @@ function loadEmpleado(){
 
 //Botones de agregar, modificar eliminar y buscar
 
-function add_Empleado(){
-    const btn_add_empleado = document.getElementById("btn-agregarEmpleado");
-    btn_add_empleado.addEventListener('click', () => {
-        window.location.href = "insertarEmpleado.html"
-    })
-}
 
-function delete_Empleado(){
-    const btn_del_empleado = document.getElementById("btn-eliminarEmpleado");
-    btn_del_empleado.addEventListener('click', () => {
-        window.location.href = "deleteEmpleado.html"
-    })
-}
 
 
 
@@ -109,15 +67,29 @@ function displayEmpleado(empleado) {
         </tr>`;
     }
 }
-
-function buscarEmpleado(){
-    const btn_buscar = document.getElementById("btn-buscarEmpleado");
-    btn_buscar.addEventListener('click', () => {
-        window.location.href = "buscarEmpleado.html"
-    });
+function init(){
+    document.querySelector('.btn-primary').addEventListener('click', modificar);
 
 }
 
+function buscarEmpleado(){
+console.log("Prueba de testeo de buscar empleado");
+
+var name = document.getElementById("search-input").value.toLowerCase();
+
+console.log(nombre);
 
 
 
+axios({
+    method: 'get',
+    url: `http://localhost:3000/admin/${name}`
+
+}).then(function(res) {
+    console.log(res);
+    alert("Busqueda exitosa");
+    window.location.href = "buscarEmpleado.html";
+}).catch(function(err) {
+    console.log(err);
+})
+}

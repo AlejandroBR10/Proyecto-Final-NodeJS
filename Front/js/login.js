@@ -74,7 +74,7 @@ function login(){
         }).then(function(res) {
             console.log(res);
             if(res.data.code === 200){
-                window.location.href = "home.html";
+                window.location.href = "paginaEmpleado.html";
                 localStorage.setItem("token", res.data.message);
                 alert("Inicio exitoso");
             }

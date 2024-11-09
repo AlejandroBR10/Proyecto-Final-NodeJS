@@ -136,6 +136,16 @@ admin.get("/", async (req, res, next) => {
     return res.status(200).json({ code: 200, message: rows });
 });
 
+admin.get("/:name([A-Za-z]+)", async (req, res, next) => {
+    const name = req.params.name;
+    const rows = await db.query('SELECT * FROM empleados WHERE nombre = ?', [name]);  
+    if(rows.length > 0) {
+       return  res.status(200).json({code: 200, message: pkmn});
+      }
+        return res.status(404).json({code: 404, message: "Empleado no encontrado"});
+    
+  });
+
 module.exports = admin;
 
 //CAMBIAR SENTENCIAS SQL

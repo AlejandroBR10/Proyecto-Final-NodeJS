@@ -5,56 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modificar Empleados</title>
+    <title>Insertar Empleado</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
-    <script src="./js/modifyEmpleado.js"></script>  
+    <script src="./js/insertarEmpleado.js"></script>  
 </head>
 
 <body>
     <div class="container">
         <div class="row mt-5">
             <div class="col-6 offset-3">
-                <h1>Modificar Empleado</h1>
+                <h1>Agregar Empleado</h1>
             </div>
         </div>
         <div class="row align-items-center">
             <div class="col-6 offset-3">
                 <div class="form-group">
-                    <label for="input-mail">ID:</label>
-                    <input type="text" class="form-control" id="input-id" placeholder="Inserta el id aquí">
-                    <small class="form-text text-muted">Id a modificar.</small>
-                </div>
-                <div class="form-group">
                     <label for="input-mail">Nombre</label>
                     <input type="text" class="form-control" id="input-name" placeholder="Inserta tu nombre aquí">
-                    <small class="form-text text-muted">Nombre a modificar.</small>
+                    <small class="form-text text-muted">Tu nombre.</small>
                 </div>
                 <div class="form-group">
                     <label for="input-mail">Apellidos</label>
                     <input type="text" class="form-control" id="input-lastname" placeholder="Inserta tus apellidos aquí">
-                    <small class="form-text text-muted">Apellidos a modificar.</small>
+                    <small class="form-text text-muted">Tus apellidos.</small>
                 </div>
 
                 <div class="form-group">
                     <label for="input-phone">Telefono</label>
                     <input type="text" class="form-control" id="input-phone" placeholder="Inserta tus numero aquí">
-                    <small class="form-text text-muted">Un número telefonico.</small>
+                    <small class="form-text text-muted">Tu número.</small>
                 </div>
 
                 <div class="form-group">
                     <label for="input-mail">Direccion</label>
-                    <input type="email" class="form-control" id="input-address" placeholder="Queretaro, Mexico">
-                    <small class="form-text text-muted">Direccion breve.</small>
+                    <input type="email" class="form-control" id="input-address" placeholder="correo@dominio.ext">
+                    <small class="form-text text-muted">La direccion de tu casa</small>
                 </div>
 
                 <div class="form-group">
                     <label for="input-mail">Correo electrónico</label>
                     <input type="email" class="form-control" id="input-mail" placeholder="correo@dominio.ext">
-                    <small class="form-text text-muted">Correo a modificar.</small>
+                    <small class="form-text text-muted">Un correo para registrarte.</small>
                 </div>
 
                 <div class="form-group">
@@ -62,7 +57,7 @@
                     <input type="password" class="form-control" id="input-password" placeholder="***********">
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button class="btn btn-primary">Modificar</button>
+                    <button class="btn btn-primary">Agregar</button>
                     <button class="btn btn-secondary">Volver</button>
                 </div>
             </div>

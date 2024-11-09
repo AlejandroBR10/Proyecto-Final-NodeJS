@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar empleado</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-    <style>
-        /* Contenedor centrado y ajustado a la pantalla completa */
-        .centered-form {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-        }
-        /* Estilos para hacer el formulario casi de pantalla completa */
-        .form-container {
-          width: 70%; /* Ancho casi completo */
-          height: 60vh; /* Altura casi completa */
-          padding: 30px;
-          border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-          background-color: white;
-          overflow-y: auto; /* Permite scroll si es necesario */
-        }
-      </style>
-
-</head>
-<body>
     <script src="./js/deleteEmpleado.js"></script>
-    <div class="centered-form">
-        <div class="form-container">
-          <h3 class="text-center mb-4">Eliminar Empleado</h3>
-          <!-- Formulario -->
-          <form>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">ID</label>
-              <input type="text" class="form-control" id="ID_deleteUser" placeholder="Ingresa el ID">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email_deleteUser" placeholder="Ingresa el correo">
-            </div>
-            <div class="mb-3">
-              <label for="telefono" class="form-label">Clave</label>
-              <input type="tel" class="form-control" id="clave_deleteUser" placeholder="Ingresa la clave">
-            </div>
-            <button type="submit" class="btn btn-primary w-100" id="enviarForm">Enviar</button>
-          </form>
-        </div>
+</head>
+
+<body>
+  <div class="container">
+      <div class="row mt-5">
+          <div class="col-6 offset-3">
+              <h1>Eliminar Empleado</h1>
+          </div>
       </div>
+      <div class="row align-items-center">
+          <div class="col-6 offset-3">
+              <div class="form-group">
+                  <label for="input-mail">ID</label>
+                  <input type="text" class="form-control" id="ID_deleteUser" placeholder="Ingresa el id aquí">
+                  <small class="form-text text-muted">ID a eliminar.</small>
+              </div>
 
-    
+              <div class="form-group">
+                  <label for="input-mail">Correo electrónico</label>
+                  <input type="email" class="form-control" id="email_deleteUser" placeholder="correo@dominio.ext">
+                  <small class="form-text text-muted">Un correo existente.</small>
+              </div>
 
+              <div class="form-group">
+                  <label for="input-password">Contraseña</label>
+                  <input type="password" class="form-control" id="clave_deleteUser" placeholder="***********">
+              </div>
+              <div class="d-flex justify-content-center">
+                  <button class="btn btn-primary w-50" id="enviarForm">Enviar</button>
+              </div>
+          </div>
+      </div>
+  </div>
 </body>
 </html>
