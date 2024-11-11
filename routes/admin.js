@@ -47,17 +47,20 @@ admin.post("/login", async (req, res, next) => {
 
 
 admin.delete(
-    "/:id(\\d{1,3})/:correo([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,})/:clave([A-Za-z0-9]+)",
+    '/:id(\\d{1,3})/:correo([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,})/:clave([A-Za-z0-9]+)',
     async (req, res, next) => {
       console.log(req.params);
-      const query = `DELETE FROM EMPLEADOS WHERE id_empleado=${req.params.id} AND correo='${req.params.correo}' AND clave='${req.params.clave}'`;
+  
+      const { id, correo, clave } = req.params;
+  
+      // Evitar inyección SQL usando parámetros de consulta
+      const query = `DELETE FROM EMPLEADOS WHERE id_empleado = ? AND correo = ? AND clave = ?`;
+      const values = [id, correo, clave];
   
       try {
-        const rows = await db.query(query);
-        if (rows.affectedRows == 1) {
-          return res
-            .status(200)
-            .json({ code: 200, message: "Empleado borrado correctamente" });
+        const rows = await db.query(query, values);
+        if (rows.affectedRows === 1) {
+          return res.status(200).json({ code: 200, message: "Empleado borrado correctamente" });
         }
         return res.status(404).json({ code: 404, message: "Empleado no encontrado" });
       } catch (error) {
