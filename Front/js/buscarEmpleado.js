@@ -53,7 +53,20 @@ function displayEmpleado(empleado) {
 
     var tableBody = document.getElementById("empleados-body");
 
-    tableBody.innerHTML += `
+    if( empleado.length > 1 ){
+     for(let i = 0; i < empleado.length; i++){
+        tableBody.innerHTML += `
+        <tr>
+            <td>${empleado[i].id_empleado}</td>
+            <td>${empleado[i].nombre}</td>
+            <td>${empleado[i].apellidos}</td>
+            <td>${empleado[i].correo}</td>
+            <td>${empleado[i].telefono}</td>
+            <td>${empleado[i].direccion}</td>
+        </tr>`;
+     }   
+    }else{
+        tableBody.innerHTML += `
         <tr>
             <td>${empleado.id_empleado}</td>
             <td>${empleado.nombre}</td>
@@ -62,6 +75,9 @@ function displayEmpleado(empleado) {
             <td>${empleado.telefono}</td>
             <td>${empleado.direccion}</td>
         </tr>`;
+    }
+
+   
 }
 
 
