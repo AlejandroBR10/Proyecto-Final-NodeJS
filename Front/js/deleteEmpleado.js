@@ -1,8 +1,12 @@
 window.onload = init;
 
 function init() {
+    document.querySelector('.btn-secondary').addEventListener('click', function() {
+        window.location.href = "home.html"
+    });
     const btnEnviar = document.getElementById("enviarForm");
     btnEnviar.addEventListener('click', delete_empleado);
+
 }
 
 function delete_empleado(e){
