@@ -12,18 +12,56 @@ function buscarEmpleado(){
     console.log("Prueba de testeo de boton");
     var nombre = document.getElementById('input-name').value;
 
-    console.log(nombre);
-    
-
-
     axios({
         method: 'get',
         url: `http://localhost:3000/admin/${nombre}`,
     }).then(function(res) {
-        console.log(res);
+        console.log(res.data.message);
         alert("Busqueda Exitosa");
-        window.location.href = "buscarEmpleadoHome.html";
+        displayEmpleado(res.data.message)
+        //window.location.href = "buscarEmpleadoHome.html";
     }).catch(function(err) {
+        alert("No se ha encontrado al usuario")
         console.log(err);
     })
 }
+
+function displayEmpleado(empleado) {
+    var body = document.querySelector("body");
+
+    body.innerHTML = `
+    <h2 class="text-center mt-4">Datos del empleado</h2>
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+        <table class="table table-striped table-bordered table-hover w-75">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                </tr>
+            </thead>
+            <tbody id="empleados-body">
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center mt-4">
+        <a href="home.html" class="btn btn-primary">Regresar a Inicio</a>
+    </div>`;
+
+    var tableBody = document.getElementById("empleados-body");
+
+    tableBody.innerHTML += `
+        <tr>
+            <td>${empleado.id_empleado}</td>
+            <td>${empleado.nombre}</td>
+            <td>${empleado.apellidos}</td>
+            <td>${empleado.correo}</td>
+            <td>${empleado.telefono}</td>
+            <td>${empleado.direccion}</td>
+        </tr>`;
+}
+
+
