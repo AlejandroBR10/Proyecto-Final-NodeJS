@@ -17,17 +17,10 @@ function init(){
     }
 }
 
-
-
-
-
 function loadEmpleado(){
     axios.get(url + "/admin", headers).then(function(res) {
         console.log(res);
         displayEmpleado(res.data.message);
-        
-        //HANDLERS DE LOS BOTONES DE LA PAGINA
-       
         
     }).catch(function(err) {
         console.log(err);
@@ -37,12 +30,6 @@ function loadEmpleado(){
     })
 }
 
-//Botones de agregar, modificar eliminar y buscar
-
-
-
-
-//Listar empleados en una tabla
 function displayEmpleado(empleado) {
     var body = document.querySelector("body");
 

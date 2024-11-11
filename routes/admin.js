@@ -69,37 +69,6 @@ admin.delete(
       }
     }
   );
-  
-
-/* 
-admin.delete("/:id([0-9]{1,3})/:correo([A-Za-z]+)/:clave([A-Za-z]+)", async (req, res, next) => {
-    console.log(req.params);
-    const query = `DELETE FROM EMPLEADOS WHERE id_empleado=${req.params.id} AND correo=${req.params.correo} AND clave=${req.params.clave}`;
-
-    const rows = await db.query(query);
-    if (rows.affectedRows == 1) {
-        return res
-            .status(200)
-            .json({ code: 200, message: "Empleado borrado correctamente" });
-    }
-    return res.status(404).json({ code: 404, message: "Empleado no encontrado" });
-});
-*/
-/*admin.put("/:id([0-9]{1,3})", async (req, res, next) => {
-    const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;
-    if (nombre && apellidos && telefono && correo && direccion && clave) {
-        let query = `UPDATE empleados SET ='${nombre}' ,apellidos= ${apellidos},`;
-        query += `telefono= ${telefono} ,correo= ${correo}, direccion = ${direccion}, clave = ${clave} WHERE id = ${req.params.id};`;
-        const rows = await db.query(query);
-        if (rows.affectedRows == 1) {
-            return res
-                .status(200)
-                .json({ code: 200, message: "Empleado actualizado correctamente" });
-        }
-        return res.status(500).json({ code: 500, message: "Ocurrio un error" });
-    }
-    return res.status(500).json({ code: 500, message: "Campos incompletos" });
-});*/
 
 admin.put("/modify/:id([0-9]{1,3})", async (req, res, next) => {
     const { nombre, apellidos, telefono, correo, direccion, clave } = req.body;
@@ -151,4 +120,3 @@ admin.get("/:name([A-Za-z]+)", async (req, res, next) => {
 
 module.exports = admin;
 
-//CAMBIAR SENTENCIAS SQL

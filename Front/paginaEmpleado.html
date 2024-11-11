@@ -1,26 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pagina Empleado</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./js/empleadoHome.js"></script>
+    <title>Página de bienvenida de Slack</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/paginaEmpleado.js"></script>
 </head>
-<body>
-    <h1 style="color: red;">PAGINA QUE VERA EL EMPLEADO</h1>
-    <h1>Bienvenido de nuevo</h1>
-    <div class="position-absolute" style="top: 10px; right: 10px;">
-        <button class="btn btn-primary btn-logout" id="btn-logout">Cerrar Sesión</button>
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
+            <img src="https://cdn-icons-png.flaticon.com/512/2830/2830573.png" alt="Slack Logo" height="30">
+            <nav class="d-flex align-items-center">
+                <a href="#" class="text-dark font-weight-bold mx-3">Producto</a>
+                <a href="#" class="text-dark font-weight-bold mx-3">Enterprise</a>
+                <a href="#" class="text-dark font-weight-bold mx-3">Recursos</a>
+                <a href="#" class="text-dark font-weight-bold mx-3">Precios</a>
+                <button class="btn btn-outline-primary mx-2">Hablar con administracion</button>
+                <button class="btn btn-primary">Continuar</button>
+            </nav>
+        </header>
+
+        <!-- Contenido principal -->
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 text-primary font-weight-bold">Te damos la bienvenida a tu nueva sede central</h1>
+                <p class="lead text-secondary">El trabajo en equipo puede ser difícil, desordenado, complicado... pero sigue siendo la mejor forma de trabajar. Pagina de prueba de empleado</p>
+                <button class="btn btn-primary mt-3">Probar gratis</button>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="https://www.bermudezabogados.mx/wp-content/uploads/2021/11/bermudez-abogados-empleados-felices-aumentan-productividad.jpg" alt="Persona 1" class="rounded-circle mx-2" width="150" height="150">
+                <img src="https://img.freepik.com/vector-premium/trabajo-equipo-personajes-negocios-comunicacion-trabajo-equipo-dibujos-animados-empleados-corporativos-personas-oficina-ilustracion-equipo-negocios_176516-369.jpg" alt="Persona 2" class="rounded-circle mx-2" width="150" height="150">
+            </div>
+            <div class="position-absolute" style="top: 10px; right: 10px;">
+                <button class="btn btn-primary btn-logout" id="btn-logout">Cerrar Sesión</button>
+            </div>
+        </div>
     </div>
-    
 
-
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

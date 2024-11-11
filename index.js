@@ -34,7 +34,6 @@ app.get("/", index );
 app.use("/admin", admin);
 app.use("/empleado", empleado);
 app.use(auth);
-//app.use("/pokemon", pokemon);
 
 app.use(notFound);
 

@@ -17,8 +17,6 @@ function init(){
     }
 }
 
-
-
 function returnToIndex(){
     const logOut = document.getElementById("btn-logout");
     logOut.addEventListener('click', () => {
@@ -69,9 +67,6 @@ function delete_Empleado(){
         window.location.href = "deleteEmpleado.html"
     })
 }
-
-
-
 //Listar empleados en una tabla
 function displayEmpleado(empleado) {
     var body = document.querySelector("body");
@@ -109,7 +104,6 @@ function displayEmpleado(empleado) {
         </tr>`;
     }
 }
-
 function buscarEmpleado(){
     const btn_buscar = document.getElementById("btn-buscarEmpleado");
     btn_buscar.addEventListener('click', () => {
