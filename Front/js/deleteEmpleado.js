@@ -6,7 +6,6 @@ function init() {
     });
     const btnEnviar = document.getElementById("enviarForm");
     btnEnviar.addEventListener('click', delete_empleado);
-
 }
 
 function delete_empleado(e){
