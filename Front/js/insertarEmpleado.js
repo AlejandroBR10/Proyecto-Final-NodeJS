@@ -1,16 +1,16 @@
 window.onload = init;
 
 function init(){
-    document.querySelector('.btn-secondary').addEventListener('click', function() {
-        window.location.href = "home.html"
-    });
-        document.querySelector('.btn-primary').addEventListener('click', modificar);
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            window.location.href = "home.html"
+        });
     
-}
+        document.querySelector('.btn-primary').addEventListener('click', insertar);
+    }
+    
 
-function modificar(){
+function insertar(){
     console.log("Prueba de testeo de boton");
-    var id = document.getElementById('input-id').value;
     var nombre = document.getElementById('input-name').value;
     var apellidos = document.getElementById('input-lastname').value;
     var telefono = document.getElementById('input-phone').value;
@@ -18,13 +18,11 @@ function modificar(){
     var direccion = document.getElementById('input-address').value;
     var clave = document.getElementById('input-password').value;
 
-    console.log(id+nombre+apellidos+telefono);
-    
 
 
     axios({
-        method: 'put',
-        url: `http://localhost:3000/admin/modify/${id}`,
+        method: 'post',
+        url: 'http://localhost:3000/empleado/signin',
         data: {
             nombre: nombre,
             apellidos: apellidos,
@@ -33,11 +31,10 @@ function modificar(){
             direccion: direccion,
             clave: clave
         }
-
     }).then(function(res) {
         console.log(res);
-        alert("Actualizacion exitosa");
-        window.location.href = "login.html";
+        alert("Registro exitoso");
+        window.location.href = "home.html";
     }).catch(function(err) {
         console.log(err);
     })
