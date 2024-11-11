@@ -2,11 +2,13 @@ window.onload = init;
 
 function init() {
     const btnEnviar = document.getElementById("enviarForm");
-    btnEnviar.addEventListener('click', (e) => {
+    btnEnviar.addEventListener('click', delete_empleado);
+}
+
+function delete_empleado(e){
         const id = document.getElementById("ID_deleteUser").value;
         const email = document.getElementById("email_deleteUser").value;
         const clave = document.getElementById("clave_deleteUser").value;
-        console.log(id, email, clave, btnEnviar);
         e.preventDefault(); 
         let url = `http://localhost:3000/admin/${id}/${email}/${clave}`
         console.log(url);
@@ -18,5 +20,4 @@ function init() {
         }).catch(function (err) {
             console.log(err);
         });
-    });
-}
+    }
